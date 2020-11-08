@@ -1,0 +1,114 @@
+<style>
+    #background{
+        background: #2e2e2e;
+        width: 500px;
+        height: 500px;
+        padding: 25px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border: black 25px solid;
+    }
+    #controls{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        padding: 0 0 10px 0;
+    }
+    #buttons{
+        flex: 50%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-content: space-between;
+    }
+    #knobs{
+        flex: 50%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-content: space-between;
+    }
+    #advenced{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        padding: 0 0 10px 0;
+    }
+    #equalizer{
+        flex: 50%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-content: space-between;
+    }
+    #meter{
+        flex: 50%;
+        display: flex;
+        justify-content: center;
+    }
+    webaudio-slider, webaudio-switch, webaudio-knob{
+        padding: 5px;
+    }
+    #progressSlider{
+        padding: 10px 0 0 0;
+        margin: 0;
+    }
+    #timeDisplay{
+        color: red;
+        background-color: black;
+        padding: 15px;
+        font-size: 30px;
+        text-align: right;
+    }
+    #waveCanvas{
+        background-color: black;
+        padding: 0;
+        margin: 0;
+    }
+</style>
+<div id="background">
+    <audio id="myPlayer" preload="metadata" crossorigin>
+    </audio>
+    <div id="audioTime">
+        <canvas id="waveCanvas" width=500 height=100></canvas>
+        <div id="timeDisplay">0:00/0:00</div>
+        <webaudio-slider height="20" width="500" id="progressSlider" min="0" max="1" step="0.01" value="0" tracking="abs"></webaudio-slider>
+    </div>
+    <div id="controls">
+        <div id=buttons>
+            <webaudio-switch id="playPauseSwitch" width="60" height="60" src="./assets/imgs/switch.png" type="toggle" value="false">Play/Pause</webaudio-switch>
+            <webaudio-switch id="resetSwitch" width="60" height="60" src="./assets/imgs/switch.png" type="kick">Reset</webaudio-switch>
+            <webaudio-switch id="loopSwitch" width="60" height="60" src="./assets/imgs/switch.png" type="toggle">Loop</webaudio-switch>
+        </div>
+        <div id="knobs">
+            <webaudio-knob width="80" height="80" id="volumeKnob" tooltip="Volume:%s%" src="./assets/imgs/knobVolume.png" value="100" min="0" max="100"
+                step="1">Volume</webaudio-knob>
+            <webaudio-knob width="80" height="80" id="balanceKnob" tooltip="Balance:%s" src="./assets/imgs/knobBalance.png" value="0"
+                min="-1" max="1" step="0.1">Balance</webaudio-knob>
+            <webaudio-knob width="80" height="80" id="gainKnob" tooltip="Gain:%s" src="./assets/imgs/knobGain.png" value="1" 
+                min="0" max="2" step="0.1">Gain</webaudio-knob>
+        </div>
+    </div>
+    <div id="advenced">
+        <div id="equalizer">
+            <webaudio-slider id="equalizer60Slider" tooltip="Gain:%s db" height="150" width="20" min="-30" max="30"
+                value="0" step="0.1">60</webaudio-slider>
+            <webaudio-slider id="equalizer170Slider" tooltip="Gain:%s db" height="150" width="20" min="-30" max="30"
+                value="0" step="0.1">170</webaudio-slider>
+            <webaudio-slider id="equalizer350Slider" tooltip="Gain:%s db" height="150" width="20" min="-30" max="30"
+                value="0" step="0.1">350</webaudio-slider>
+            <webaudio-slider id="equalizer1000Slider" tooltip="Gain:%s db" height="150" width="20" min="-30" max="30"
+                value="0" step="0.1"> 1k</webaudio-slider>
+            <webaudio-slider id="equalizer3500Slider" tooltip="Gain:%s db" height="150" width="20" min="-30" max="30"
+                value="0" step="0.1">3.5k </webaudio-slider>
+            <webaudio-slider id="equalizer10000Slider" tooltip="Gain:%s db" height="150" width="20" min="-30" max="30"
+                value="0" step="0.1">10k</webaudio-slider>
+        </div>
+        <div id="meter">
+            <webaudio-knob id="meterKnob" src="./assets/imgs/meter.png" value="100" min="124" max="134"
+                step="0.1" enable="0"></webaudio-knob>
+        </div>
+    </div>
+</div>
