@@ -56,4 +56,5 @@ Ensuite vous pouvez l'utiliser comme ceci :
 - `current-time` : valeur en secondes, position dans le son (défaut = `0`)
 - `gain` : valeur de `0.00` à `2.00` pour le réglage du gain (défaut = `1`)
 - `balance` valeur de `-1.00` à `1.00` pour le réglage de la balance (défaut = `0`)
+
 Ces attributs sont controllables via javascript.
